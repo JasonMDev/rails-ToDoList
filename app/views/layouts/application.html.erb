@@ -1,14 +1,27 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>RailsTodolist</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <!-- Navigation Header -->
+  <%= render 'layouts/header' %>
+  
+  <body>
+    <!-- Navigation Header -->
+    <%= render 'layouts/navigation' %>
 
-<%= yield %>
+    <!-- Body -->
+    <div class="container">
 
-</body>
+      <!-- Devise "notices" and "alerts" -->
+      <%= render 'layouts/notices_and_alerts' %>      
+      
+      <!-- Normal Body -->        
+      <%= yield %>
+
+      <!-- Footer -->
+      <%= render 'layouts/footer' %>
+
+      <!-- Debug information to the site layout. -->
+      <%= debug(params) if Rails.env.development? %>
+      
+    </div>   
+  </body>
 </html>
