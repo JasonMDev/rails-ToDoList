@@ -1,0 +1,12 @@
+<p>
+  <strong>Action item:</strong>
+  <%= @todo_list.action_item %>
+</p>
+
+<p>
+  <strong>Action complete:</strong>
+  <%= @todo_list.action_complete %>
+</p>
+
+<%= link_to 'Edit', edit_todo_list_path(@todo_list) %> |
+<%= link_to 'Back', todo_lists_path %>
