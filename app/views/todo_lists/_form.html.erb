@@ -1,4 +1,4 @@
-<%= form_for(@todo_list) do |f| %>
+<%= form_for(@todo_list, remote: true) do |f| %>
   <% if @todo_list.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@todo_list.errors.count, "error") %> prohibited this todo_list from being saved:</h2>
@@ -11,15 +11,20 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :action_item %><br>
-    <%= f.text_area :action_item, value: "What needs to be done?" %>
-  </div>
-  <div class="field">
-    <% f.label :action_complete %><br>
-    <% f.check_box :action_complete %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <div id="text-box--form">
+
+    <div class="field" >
+      <%= f.label :action_item %><br>
+      <%= f.text_area :action_item, value: "What needs to be done?" %>
+    </div>
+    <div class="field">
+      <%= f.label :action_complete %><br>
+      <%= f.check_box :action_complete %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
+  </div>  
+
 <% end %>

@@ -24,4 +24,20 @@
 
 <br>
 
+<h2> todo items</h2>
+how to append/prepend, hide/show, add/remove elements to a list or your page.
+
+<!-- Show the list of ToDo Items.-->
+<ul id="ToDoItems">
+      
+  <%= render @todo_lists %> 
+    
+</ul>
+
+
+
+<br>
+
+<%= render 'form' %>
+
 <%= link_to 'New Todo list', new_todo_list_path %>
