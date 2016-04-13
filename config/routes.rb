@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
   root 'todo_lists#index'
 
-  resources :todo_lists do
-    resource :favorite, only: %w(update destroy)
-  end
-  
+  resources :todo_lists 
+    
   resources :users
 
   devise_for :users
