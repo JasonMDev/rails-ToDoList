@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
-  resources :todo_lists
+  root 'todo_lists#index'
+
+  resources :todo_lists do
+    resource :favorite, only: %w(update destroy)
+  end
+  
+  resources :users
+
   devise_for :users
   
-  root 'todo_lists#index'
-  resources :users
+  
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

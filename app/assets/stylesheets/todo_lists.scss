@@ -1,3 +1,15 @@
 // Place all the styles related to the TodoLists controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* assets/stylesheets/posts.css.scss */
+.post {
+  /* off by default */
+  .unfavorite { display: none; }
+}
+
+/* when the post is favorited show the unfavorite button instead */
+.post.favorited {
+  .favorite { display: none; }
+  .unfavorite { display: inline-block; }
+}

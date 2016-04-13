@@ -1,13 +1,39 @@
-<li>
-  <%= todo_list.action_item %>
-  &nbsp|&nbsp
-  <%= todo_list.action_complete %>
-  &nbsp|&nbsp
-  <%= link_to 'Show', todo_list %>
-  &nbsp|&nbsp
-  <%= link_to 'Edit', edit_todo_list_path(todo_list) %>
-  <!-- Add form checkbox here -->
-  &nbsp|&nbsp
-  <%= link_to 'Destroy', todo_list, method: :delete %>
-</li>
- 
+<%= link_to(edit_todo_list_path(todo_list)) do %>  
+  <div class="list_current">
+    <%= todo_list.action_complete %>
+
+    <%= form_for(todo_list) do |f| %>
+      <div class="field">
+        <%= f.label :action_complete %><br>
+        <%= f.check_box :action_complete %>
+      </div>
+    <% end %>
+
+    &nbsp|&nbsp
+    
+    
+
+    <!-- Add form checkbox here -->
+    &nbsp|&nbsp
+    <%= link_to ('<span class="glyphicon glyphicon-remove"></span>').html_safe, todo_list, class: "btn btn-danger center block", method: :delete, data: { } %>
+  </div>
+
+  
+
+<% end %> 
+
+<hr>
+<%# views/posts/show.html.erb %> 
+<%= div_for(todo_list, class: post_css(todo_list)) do %> 
+
+  <%# This outputs two buttons which CSS rules make
+      sure only one is visible at a time %> 
+  <%= toggle_button_to 'icon-star', 'Favorite', todo_list_favorite_path(todo_list),
+       on: 'favorite btn',
+       off: 'unfavorite btn btn-primary' %> 
+
+<% end %>
+<hr>
+
+<% todo_list.action_complete %>
+<% todo_list.action_item %>

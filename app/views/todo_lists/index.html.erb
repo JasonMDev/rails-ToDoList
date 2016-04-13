@@ -1,6 +1,33 @@
 <h1>My Todo List</h1>
 
-<table>
+<!-- Show the list of ToDo Items.-->
+<%= render 'form' %>
+
+<!-- Show the list of ToDo Items.-->
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div id="ToDoItems">
+          
+      <%= render @todo_lists %> 
+        
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<hr>
+how to append/prepend, hide/show, add/remove elements to a list or your page.
+
+
+<hr>
+
+<!-- Original Scaffolding index -->
+
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Action item</th>
@@ -12,32 +39,14 @@
   <tbody>
     <% @todo_lists.each do |todo_list| %>
       <tr>
-        <td><%= todo_list.action_item %></td>
-        <td><%= todo_list.action_complete %></td>
-        <td><%= link_to 'Show', todo_list %></td>
-        <td><%= link_to 'Edit', edit_todo_list_path(todo_list) %></td>
-        <td><%= link_to 'Destroy', todo_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><% todo_list.action_item %></td>
+        <td><% todo_list.action_complete %></td>
+        <td><% link_to 'Show', todo_list %></td>
+        <td><% link_to 'Edit', edit_todo_list_path(todo_list) %></td>
+        <td><% link_to 'Destroy', todo_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<h2> todo items</h2>
-how to append/prepend, hide/show, add/remove elements to a list or your page.
-
-<!-- Show the list of ToDo Items.-->
-<ul id="ToDoItems">
-      
-  <%= render @todo_lists %> 
-    
-</ul>
-
-
-
-<br>
-
-<%= render 'form' %>
-
-<%= link_to 'New Todo list', new_todo_list_path %>
+<% link_to 'New Todo list', new_todo_list_path %>
