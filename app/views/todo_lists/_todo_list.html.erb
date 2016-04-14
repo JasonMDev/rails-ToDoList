@@ -1,37 +1,53 @@
-<%= link_to(edit_todo_list_path(todo_list)) do %>  
-  <div class="list_current">
+<!-- List items -->
 
-    <%= form_for(todo_list) do |f| %>
+<div class="col-md-6 col-md-offset-3 list-item">
 
-      <!-- Bootstrap checked button. -->
-      <div class="btn-group" data-toggle="buttons">
-        <label class="btn btn-primary active">
-          <input type="checkbox" autocomplete="off" checked> Checkbox 1 (pre-checked)
-        </label>
-      </div>
-    <% end %>
+  <div class="input-group">
+    <!-- Buttons -->
+    <div class="input-group-btn">
+      <!-- SHow if action is complete or not -->
+      <% if todo_list.action_complete? %>
+      
+        <!-- Completed-->
+        <div class="btn btn-success center block">
+          <span class="glyphicon glyphicon-ok"></span>          
+        </div>
 
-    &nbsp|&nbsp
-    <%= todo_list.action_item %>
-    
-    
+      <% else %>
 
-    <!-- Add form checkbox here -->
-    &nbsp|&nbsp
-    <%= link_to ('<span class="glyphicon glyphicon-remove"></span>').html_safe, todo_list, class: "btn btn-danger center block", method: :delete, data: { } %>
+        <!-- Not completed -->      
+        <div class="btn btn-warning center block">
+          <span class="glyphicon glyphicon-exclamation-sign"></span>
+        </div>        
+
+      <% end %>
+    </div>
+    <input type="text" class="form-control" aria-label="..." 
+      placeholder="<%= todo_list.action_item %>">
+
+    <!-- Buttons -->
+    <div class="input-group-btn">    
+      <!-- Edit -->
+      <%= link_to ('<span class="glyphicon glyphicon-pencil"></span>').html_safe, edit_todo_list_path(todo_list), class: "btn btn-info center block" %>
+      <!-- Delete -->
+      <%= link_to ('<span class="glyphicon glyphicon-remove"></span>').html_safe, todo_list, method: :delete, class: "btn btn-danger center block" %>
+    </div>
   </div>
+</div>      
   
-
-<% end %> 
-
-<hr>
-<div class="btn-group" data-toggle="buttons">
-  <label class="btn btn-primary active">
-    <input type="radio" name="options" id="option1" autocomplete="off" checked> Radio 1 (preselected)
-  </label>
-</div>
-<hr>
-
+  
 <!-- #f.label :action_complete -->
 <% todo_list.action_complete %>
 <% todo_list.action_item %>
+
+<% if @todo_list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@todo_list.errors.count, "error") %> prohibited this todo_list from being saved:</h2>
+
+      <ul>
+      <% @todo_list.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>

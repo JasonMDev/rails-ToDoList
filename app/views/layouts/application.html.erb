@@ -11,10 +11,14 @@
     <div class="container">
 
       <!-- Devise "notices" and "alerts" -->
-      <%= render 'layouts/notices_and_alerts' %>      
+      <%= render 'layouts/notices_and_alerts' %> 
+
+    </div>       
       
-      <!-- Normal Body -->        
-      <%= yield %>
+    <!-- Normal Body -->        
+    <%= yield %>
+
+    <div class="container">
 
       <!-- Footer -->
       <%= render 'layouts/footer' %>

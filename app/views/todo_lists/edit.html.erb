@@ -1,6 +1,14 @@
 <h1>Editing Todo List</h1>
 
-<%= render 'form' %>
+<div class="container">   
 
-<%= link_to 'Show', @todo_list %> |
-<%= link_to 'Back', todo_lists_path %>
+  <div class="row">
+    <%= render 'formEdit' %>
+  </div> 
+
+  <div class="center">
+    <%= link_to 'Show', @todo_list %> |
+    <%= link_to 'Back', todo_lists_path %>
+  </div>  
+
+</div>

@@ -14,19 +14,11 @@
     <% end %>
   </div> 
 
-<div class="col-md-6 col-md-offset-3 list-item well">
+<div class="col-md-6 col-md-offset-3 list-item">
   <div class="input-group">
-
-    <span class="input-group-btn">
-      <div class="center">
-        <span>
-          <%= check_box("todo_list", "action_complete") %>
-        </span>  
-      </div>
-    </span>
     
     <span class="field" >
-      <% f.label :action_item %><br>
+      <% f.label :action_item %>
       <%= f.text_area :action_item , class: 'form-control'%>
     </span>
 

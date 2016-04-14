@@ -2,3 +2,25 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.list-item {
+  padding: 0.5em;
+
+}
+
+
+#todo_list_action_item {
+  height: 34px;
+}
+
+.border-list {
+  border: 1px solid gray;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+input[type="checkbox"] {
+  padding: 0.5em;
+  margin: 1px auto;
+  height: 34px;
+  width: 34px;
+}
